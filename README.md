@@ -13,13 +13,16 @@ By IntFocus
 
 In order to run the system (for demo and development purposes), you may follow the following steps:
 
-- `git clone git@github.com:lihaoalbert/aow.git`
-- `bundle install`
-- `rake db:create`
-- `rake db:migrate`
-- `rake db:seed`
-- `rails s`
-- done, fire up your browser and browse to `http://localhost:3000/` :)
+    git clone git@github.com:lihaoalbert/aow.git
+    cd aow
+    cp config/database.yml.sample config/database.yml
+    bundle install
+    rake db:create
+    rake db:migrate
+    rake db:seed
+    rails s
+
+Done, fire up your browser and browse to `http://localhost:3000/` :)
 
 ## Contributing
 
