@@ -1,121 +1,192 @@
-<%= form_for(@company) do |f| %>
-  <% if @company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+<%= form_for @company, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /Company</legend>
 
-      <ul>
-      <% @company.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="control-group">
+      <%= f.label :compNameEN, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :compNameEN, :class => 'text_field' %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :compNameEN %><br />
-    <%= f.text_field :compNameEN %>
-  </div>
-  <div class="field">
-    <%= f.label :compNameCN %><br />
-    <%= f.text_field :compNameCN %>
-  </div>
-  <div class="field">
-    <%= f.label :businessLine %><br />
-    <%= f.text_field :businessLine %>
-  </div>
-  <div class="field">
-    <%= f.label :foundationDate %><br />
-    <%= f.date_select :foundationDate %>
-  </div>
-  <div class="field">
-    <%= f.label :legalDuration %><br />
-    <%= f.text_field :legalDuration %>
-  </div>
-  <div class="field">
-    <%= f.label :legalNature %><br />
-    <%= f.text_field :legalNature %>
-  </div>
-  <div class="field">
-    <%= f.label :registeredCapital %><br />
-    <%= f.text_field :registeredCapital %>
-  </div>
-  <div class="field">
-    <%= f.label :investment %><br />
-    <%= f.text_field :investment %>
-  </div>
-  <div class="field">
-    <%= f.label :corpRepresentative %><br />
-    <%= f.text_field :corpRepresentative %>
-  </div>
-  <div class="field">
-    <%= f.label :regAddressEN %><br />
-    <%= f.text_field :regAddressEN %>
-  </div>
-  <div class="field">
-    <%= f.label :regAddressCN %><br />
-    <%= f.text_field :regAddressCN %>
-  </div>
-  <div class="field">
-    <%= f.label :operAddressEN %><br />
-    <%= f.text_field :operAddressEN %>
-  </div>
-  <div class="field">
-    <%= f.label :operAddressCN %><br />
-    <%= f.text_field :operAddressCN %>
-  </div>
-  <div class="field">
-    <%= f.label :postCode %><br />
-    <%= f.text_field :postCode %>
-  </div>
-  <div class="field">
-    <%= f.label :tel %><br />
-    <%= f.text_field :tel %>
-  </div>
-  <div class="field">
-    <%= f.label :fax %><br />
-    <%= f.text_field :fax %>
-  </div>
-  <div class="field">
-    <%= f.label :province %><br />
-    <%= f.text_field :province %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :county %><br />
-    <%= f.text_field :county %>
-  </div>
-  <div class="field">
-    <%= f.label :datasource %><br />
-    <%= f.text_field :datasource %>
-  </div>
-  <div class="field">
-    <%= f.label :memo %><br />
-    <%= f.text_field :memo %>
-  </div>
-  <div class="field">
-    <%= f.label :registeredCapitalRMB %><br />
-    <%= f.text_field :registeredCapitalRMB %>
-  </div>
-  <div class="field">
-    <%= f.label :investmentRMB %><br />
-    <%= f.text_field :investmentRMB %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.number_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :statusYear %><br />
-    <%= f.number_field :statusYear %>
-  </div>
-  <div class="field">
-    <%= f.label :auditFlag %><br />
-    <%= f.check_box :auditFlag %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="control-group">
+      <%= f.label :compNameCN, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :compNameCN, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :businessLine, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :businessLine, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :foundationDate, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.date_select :foundationDate, :class => 'date_select' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :legalDuration, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :legalDuration, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :legalNature, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :legalNature, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :registeredCapital, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :registeredCapital, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :investment, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :investment, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :corpRepresentative, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :corpRepresentative, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :regAddressEN, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :regAddressEN, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :regAddressCN, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :regAddressCN, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :operAddressEN, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :operAddressEN, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :operAddressCN, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :operAddressCN, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :postCode, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :postCode, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :tel, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :tel, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :fax, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :fax, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :province, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :province, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :city, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :city, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :county, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :county, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :datasource, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :datasource, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :memo, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :memo, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :registeredCapitalRMB, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :registeredCapitalRMB, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :investmentRMB, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :investmentRMB, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :status, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :status, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :statusYear, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :statusYear, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :auditFlag, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :auditFlag, :class => 'check_box' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', companies_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>

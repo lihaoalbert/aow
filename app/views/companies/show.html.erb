@@ -1,135 +1,137 @@
-<p id="notice"><%= notice %></p>
+<h1>/Company</h1>
 
 <p>
-  <b>Compnameen:</b>
+  <b>Compnameen</b><br>
   <%= @company.compNameEN %>
 </p>
 
 <p>
-  <b>Compnamecn:</b>
+  <b>Compnamecn</b><br>
   <%= @company.compNameCN %>
 </p>
 
 <p>
-  <b>Businessline:</b>
+  <b>Businessline</b><br>
   <%= @company.businessLine %>
 </p>
 
 <p>
-  <b>Foundationdate:</b>
+  <b>Foundationdate</b><br>
   <%= @company.foundationDate %>
 </p>
 
 <p>
-  <b>Legalduration:</b>
+  <b>Legalduration</b><br>
   <%= @company.legalDuration %>
 </p>
 
 <p>
-  <b>Legalnature:</b>
+  <b>Legalnature</b><br>
   <%= @company.legalNature %>
 </p>
 
 <p>
-  <b>Registeredcapital:</b>
+  <b>Registeredcapital</b><br>
   <%= @company.registeredCapital %>
 </p>
 
 <p>
-  <b>Investment:</b>
+  <b>Investment</b><br>
   <%= @company.investment %>
 </p>
 
 <p>
-  <b>Corprepresentative:</b>
+  <b>Corprepresentative</b><br>
   <%= @company.corpRepresentative %>
 </p>
 
 <p>
-  <b>Regaddressen:</b>
+  <b>Regaddressen</b><br>
   <%= @company.regAddressEN %>
 </p>
 
 <p>
-  <b>Regaddresscn:</b>
+  <b>Regaddresscn</b><br>
   <%= @company.regAddressCN %>
 </p>
 
 <p>
-  <b>Operaddressen:</b>
+  <b>Operaddressen</b><br>
   <%= @company.operAddressEN %>
 </p>
 
 <p>
-  <b>Operaddresscn:</b>
+  <b>Operaddresscn</b><br>
   <%= @company.operAddressCN %>
 </p>
 
 <p>
-  <b>Postcode:</b>
+  <b>Postcode</b><br>
   <%= @company.postCode %>
 </p>
 
 <p>
-  <b>Tel:</b>
+  <b>Tel</b><br>
   <%= @company.tel %>
 </p>
 
 <p>
-  <b>Fax:</b>
+  <b>Fax</b><br>
   <%= @company.fax %>
 </p>
 
 <p>
-  <b>Province:</b>
+  <b>Province</b><br>
   <%= @company.province %>
 </p>
 
 <p>
-  <b>City:</b>
+  <b>City</b><br>
   <%= @company.city %>
 </p>
 
 <p>
-  <b>County:</b>
+  <b>County</b><br>
   <%= @company.county %>
 </p>
 
 <p>
-  <b>Datasource:</b>
+  <b>Datasource</b><br>
   <%= @company.datasource %>
 </p>
 
 <p>
-  <b>Memo:</b>
+  <b>Memo</b><br>
   <%= @company.memo %>
 </p>
 
 <p>
-  <b>Registeredcapitalrmb:</b>
+  <b>Registeredcapitalrmb</b><br>
   <%= @company.registeredCapitalRMB %>
 </p>
 
 <p>
-  <b>Investmentrmb:</b>
+  <b>Investmentrmb</b><br>
   <%= @company.investmentRMB %>
 </p>
 
 <p>
-  <b>Status:</b>
+  <b>Status</b><br>
   <%= @company.status %>
 </p>
 
 <p>
-  <b>Statusyear:</b>
+  <b>Statusyear</b><br>
   <%= @company.statusYear %>
 </p>
 
 <p>
-  <b>Auditflag:</b>
+  <b>Auditflag</b><br>
   <%= @company.auditFlag %>
 </p>
 
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<div class="form-actions">
+  <%= link_to 'Back', companies_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_company_path(@company), :class => 'btn' %>
+  <%= link_to 'Delete', company_path(@company), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
