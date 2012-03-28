@@ -1,0 +1,121 @@
+<%= form_for(@company) do |f| %>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% @company.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :compNameEN %><br />
+    <%= f.text_field :compNameEN %>
+  </div>
+  <div class="field">
+    <%= f.label :compNameCN %><br />
+    <%= f.text_field :compNameCN %>
+  </div>
+  <div class="field">
+    <%= f.label :businessLine %><br />
+    <%= f.text_field :businessLine %>
+  </div>
+  <div class="field">
+    <%= f.label :foundationDate %><br />
+    <%= f.date_select :foundationDate %>
+  </div>
+  <div class="field">
+    <%= f.label :legalDuration %><br />
+    <%= f.text_field :legalDuration %>
+  </div>
+  <div class="field">
+    <%= f.label :legalNature %><br />
+    <%= f.text_field :legalNature %>
+  </div>
+  <div class="field">
+    <%= f.label :registeredCapital %><br />
+    <%= f.text_field :registeredCapital %>
+  </div>
+  <div class="field">
+    <%= f.label :investment %><br />
+    <%= f.text_field :investment %>
+  </div>
+  <div class="field">
+    <%= f.label :corpRepresentative %><br />
+    <%= f.text_field :corpRepresentative %>
+  </div>
+  <div class="field">
+    <%= f.label :regAddressEN %><br />
+    <%= f.text_field :regAddressEN %>
+  </div>
+  <div class="field">
+    <%= f.label :regAddressCN %><br />
+    <%= f.text_field :regAddressCN %>
+  </div>
+  <div class="field">
+    <%= f.label :operAddressEN %><br />
+    <%= f.text_field :operAddressEN %>
+  </div>
+  <div class="field">
+    <%= f.label :operAddressCN %><br />
+    <%= f.text_field :operAddressCN %>
+  </div>
+  <div class="field">
+    <%= f.label :postCode %><br />
+    <%= f.text_field :postCode %>
+  </div>
+  <div class="field">
+    <%= f.label :tel %><br />
+    <%= f.text_field :tel %>
+  </div>
+  <div class="field">
+    <%= f.label :fax %><br />
+    <%= f.text_field :fax %>
+  </div>
+  <div class="field">
+    <%= f.label :province %><br />
+    <%= f.text_field :province %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :county %><br />
+    <%= f.text_field :county %>
+  </div>
+  <div class="field">
+    <%= f.label :datasource %><br />
+    <%= f.text_field :datasource %>
+  </div>
+  <div class="field">
+    <%= f.label :memo %><br />
+    <%= f.text_field :memo %>
+  </div>
+  <div class="field">
+    <%= f.label :registeredCapitalRMB %><br />
+    <%= f.text_field :registeredCapitalRMB %>
+  </div>
+  <div class="field">
+    <%= f.label :investmentRMB %><br />
+    <%= f.text_field :investmentRMB %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.number_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :statusYear %><br />
+    <%= f.number_field :statusYear %>
+  </div>
+  <div class="field">
+    <%= f.label :auditFlag %><br />
+    <%= f.check_box :auditFlag %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

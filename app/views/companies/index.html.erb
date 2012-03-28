@@ -1,0 +1,73 @@
+<h1>Listing companies</h1>
+
+<table>
+  <tr>
+    <th>Compnameen</th>
+    <th>Compnamecn</th>
+    <th>Businessline</th>
+    <th>Foundationdate</th>
+    <th>Legalduration</th>
+    <th>Legalnature</th>
+    <th>Registeredcapital</th>
+    <th>Investment</th>
+    <th>Corprepresentative</th>
+    <th>Regaddressen</th>
+    <th>Regaddresscn</th>
+    <th>Operaddressen</th>
+    <th>Operaddresscn</th>
+    <th>Postcode</th>
+    <th>Tel</th>
+    <th>Fax</th>
+    <th>Province</th>
+    <th>City</th>
+    <th>County</th>
+    <th>Datasource</th>
+    <th>Memo</th>
+    <th>Registeredcapitalrmb</th>
+    <th>Investmentrmb</th>
+    <th>Status</th>
+    <th>Statusyear</th>
+    <th>Auditflag</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @companies.each do |company| %>
+  <tr>
+    <td><%= company.compNameEN %></td>
+    <td><%= company.compNameCN %></td>
+    <td><%= company.businessLine %></td>
+    <td><%= company.foundationDate %></td>
+    <td><%= company.legalDuration %></td>
+    <td><%= company.legalNature %></td>
+    <td><%= company.registeredCapital %></td>
+    <td><%= company.investment %></td>
+    <td><%= company.corpRepresentative %></td>
+    <td><%= company.regAddressEN %></td>
+    <td><%= company.regAddressCN %></td>
+    <td><%= company.operAddressEN %></td>
+    <td><%= company.operAddressCN %></td>
+    <td><%= company.postCode %></td>
+    <td><%= company.tel %></td>
+    <td><%= company.fax %></td>
+    <td><%= company.province %></td>
+    <td><%= company.city %></td>
+    <td><%= company.county %></td>
+    <td><%= company.datasource %></td>
+    <td><%= company.memo %></td>
+    <td><%= company.registeredCapitalRMB %></td>
+    <td><%= company.investmentRMB %></td>
+    <td><%= company.status %></td>
+    <td><%= company.statusYear %></td>
+    <td><%= company.auditFlag %></td>
+    <td><%= link_to 'Show', company %></td>
+    <td><%= link_to 'Edit', edit_company_path(company) %></td>
+    <td><%= link_to 'Destroy', company, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Company', new_company_path %>

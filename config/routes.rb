@@ -1,4 +1,6 @@
 Aow::Application.routes.draw do
+  resources :companies
+
   root :to => 'home#index'
 
   # The priority is based upon order of creation:
