@@ -64,29 +64,5 @@ describe "companies/index" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Comp Name En".to_s, :count => 2
-    assert_select "tr>td", :text => "Comp Name Cn".to_s, :count => 2
-    assert_select "tr>td", :text => "Business Line".to_s, :count => 2
-    assert_select "tr>td", :text => 1.5.to_s, :count => 2
-    assert_select "tr>td", :text => "Legal Nature".to_s, :count => 2
-    assert_select "tr>td", :text => 1.5.to_s, :count => 2
-    assert_select "tr>td", :text => 1.5.to_s, :count => 2
-    assert_select "tr>td", :text => "Corp Representative".to_s, :count => 2
-    assert_select "tr>td", :text => "Reg Address En".to_s, :count => 2
-    assert_select "tr>td", :text => "Reg Address Cn".to_s, :count => 2
-    assert_select "tr>td", :text => "Oper Address En".to_s, :count => 2
-    assert_select "tr>td", :text => "Oper Address Cn".to_s, :count => 2
-    assert_select "tr>td", :text => "Post Code".to_s, :count => 2
-    assert_select "tr>td", :text => "Tel".to_s, :count => 2
-    assert_select "tr>td", :text => "Fax".to_s, :count => 2
-    assert_select "tr>td", :text => "Province".to_s, :count => 2
-    assert_select "tr>td", :text => "City".to_s, :count => 2
-    assert_select "tr>td", :text => "County".to_s, :count => 2
-    assert_select "tr>td", :text => "Datasource".to_s, :count => 2
-    assert_select "tr>td", :text => "Memo".to_s, :count => 2
-    assert_select "tr>td", :text => 1.5.to_s, :count => 2
-    assert_select "tr>td", :text => "Investment Rmb".to_s, :count => 2
-    assert_select "tr>td", :text => 1.to_s, :count => 2
-    assert_select "tr>td", :text => 2.to_s, :count => 2
-    assert_select "tr>td", :text => false.to_s, :count => 2
   end
 end
