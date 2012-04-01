@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @field_group.name %>
+</p>
+
+<p>
+  <b>Label:</b>
+  <%= @field_group.label %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @field_group.position %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @field_group.tag_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_field_group_path(@field_group) %> |
+<%= link_to 'Back', field_groups_path %>

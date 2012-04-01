@@ -1,0 +1,29 @@
+<h1>Listing field_groups</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Label</th>
+    <th>Position</th>
+    <th>Tag</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @field_groups.each do |field_group| %>
+  <tr>
+    <td><%= field_group.name %></td>
+    <td><%= field_group.label %></td>
+    <td><%= field_group.position %></td>
+    <td><%= field_group.tag_id %></td>
+    <td><%= link_to 'Show', field_group %></td>
+    <td><%= link_to 'Edit', edit_field_group_path(field_group) %></td>
+    <td><%= link_to 'Destroy', field_group, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Field group', new_field_group_path %>

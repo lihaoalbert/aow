@@ -1,4 +1,10 @@
 Aow::Application.routes.draw do
+  resources :fields
+
+  resources :field_groups
+
+  resources :products
+
   resources :companies
 
   root :to => 'home#index'
