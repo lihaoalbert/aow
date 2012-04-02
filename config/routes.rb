@@ -1,4 +1,6 @@
 Aow::Application.routes.draw do
+  resources :tags
+
   resources :fields
 
   resources :field_groups
