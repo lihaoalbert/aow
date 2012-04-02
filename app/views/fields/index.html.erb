@@ -1,33 +1,26 @@
-<h1>Listing fields</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Label</th>
-    <th>Field group</th>
-    <th>As</th>
-    <th>Collection</th>
-    <th>Position</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @fields.each do |field| %>
-  <tr>
-    <td><%= field.name %></td>
-    <td><%= field.label %></td>
-    <td><%= field.field_group_id %></td>
-    <td><%= field.as %></td>
-    <td><%= field.collection %></td>
-    <td><%= field.position %></td>
-    <td><%= link_to 'Show', field %></td>
-    <td><%= link_to 'Edit', edit_field_path(field) %></td>
-    <td><%= link_to 'Destroy', field, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h1>Fields</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @fields.each do |field| %>
+      <tr>
+        <td><%= field.id %></td>
+        <td><%= link_to field.name, field_path(field) %></td>
+        <td><%= field.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_field_path(field), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', field_path(field), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Field', new_field_path %>
+<%= link_to 'New', new_field_path, :class => 'btn btn-primary' %>

@@ -1,33 +1,33 @@
-<%= form_for(@field_group) do |f| %>
-  <% if @field_group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@field_group.errors.count, "error") %> prohibited this field_group from being saved:</h2>
+<%= form_for @field_group, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /Field Group</legend>
 
-      <ul>
-      <% @field_group.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <%= render :partial => "common/form_error", :locals => { model: @field_group } %>
+
+    <div class="control-group">
+      <%= f.label :label, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :label, :class => 'text_field' %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :label %><br />
-    <%= f.text_field :label %>
-  </div>
-  <div class="field">
-    <%= f.label :position %><br />
-    <%= f.number_field :position %>
-  </div>
-  <div class="field">
-    <%= f.label :tag_id %><br />
-    <%= f.number_field :tag_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="control-group">
+      <%= f.label :position, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :position, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :tag_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :tag_id, options_for_select(Tag.all.collect{|tag| [tag.name, tag.id]}, @field_group.tag_id), :include_blank => true %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', field_groups_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>
