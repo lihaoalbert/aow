@@ -2,4 +2,22 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  language:      English
+  # Form field types
+  #----------------------------------------------------------------------------
+  field_types:
+    string:      Short Answer
+    text:        Long Answer
+    select:      Select List
+    multiselect: Multi Select
+    radio:       Radio Buttons
+    boolean:     Checkbox
+    check_boxes: Checkbox List
+    date:        Date
+    datetime:    Date & Time
+    email:       Email Address
+    url:         URL
+    tel:         Phone Number
+    decimal:     Number (Decimal)
+    integer:     Number (Integer)
+    float:       Number (Floating Point)

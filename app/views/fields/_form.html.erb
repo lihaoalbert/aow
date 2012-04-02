@@ -19,21 +19,21 @@
     <div class="control-group">
       <%= f.label :field_group_id, :class => 'control-label' %>
       <div class="controls">
-        <%= f.number_field :field_group_id, :class => 'number_field' %>
+        <%= f.select :field_group_id, options_for_select(FieldGroup.all.collect{ |group| [group.label, group.id] }, params[:field_group_id] || @field.field_group_id) %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :as, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :as, :class => 'text_field' %>
+        <%= f.select :as, field_edit_as_options(f.object) %>
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :collection, :class => 'control-label' %>
+      <%= f.label "Select options(pipe seperated)", :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_area :collection, :class => 'text_area' %>
+        <%= f.text_area :collection_string, :class => 'text_area' %>
       </div>
     </div>
 
