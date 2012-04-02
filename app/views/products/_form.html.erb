@@ -12,7 +12,7 @@
     <div class="control-group">
       <%= f.label :company_id, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :company_id, options_for_select(Company.all.collect{|company| [company.compNameCN, company.id]}, @product.company_id) %>
+        <%= f.select :company_id, options_for_select(Company.all.collect{|company| [company.compNameCN, company.id]}, @product.company_id), :include_blank => true %>
       </div>
     </div>
 

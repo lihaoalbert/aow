@@ -3,5 +3,5 @@ class Product < ActiveRecord::Base
 
   acts_as_taggable
 
-  validates_presence_of :company_id
+  validates_presence_of :company_id, :name
 end
