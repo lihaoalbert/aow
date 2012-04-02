@@ -5,6 +5,7 @@
       <th>ID</th>
       <th>Name</th>
       <th>Company</th>
+      <th>Tags</th>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
@@ -15,6 +16,7 @@
         <td><%= product.id %></td>
         <td><%= link_to product.name, product_path(product) %></td>
         <td><%= link_to product.company.compNameCN, product.company %></td>
+        <td><%= product.tag_list %></td>
         <td><%= product.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_product_path(product), :class => 'btn btn-mini' %>
