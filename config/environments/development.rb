@@ -32,6 +32,9 @@ Aow::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 
+  # Do not print assets log
+  config.assets.logger = false
+
   # Expands the lines which load the assets
   config.assets.debug = true
 end
