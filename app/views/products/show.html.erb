@@ -1,15 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h1>/Product</h1>
 
 <p>
-  <b>Name:</b>
+  <b>Name</b><br>
   <%= @product.name %>
 </p>
 
 <p>
-  <b>Company:</b>
+  <b>Company</b><br>
   <%= @product.company_id %>
 </p>
 
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="form-actions">
+  <%= link_to 'Back', products_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_product_path(@product), :class => 'btn' %>
+  <%= link_to 'Delete', product_path(@product), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

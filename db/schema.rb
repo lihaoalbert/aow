@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330142804) do
+ActiveRecord::Schema.define(:version => 20120402064143) do
 
   create_table "companies", :force => true do |t|
     t.string   "compNameEN"
@@ -42,6 +42,33 @@ ActiveRecord::Schema.define(:version => 20120330142804) do
     t.boolean  "auditFlag"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+  end
+
+  create_table "field_groups", :force => true do |t|
+    t.string   "name"
+    t.string   "label"
+    t.integer  "position"
+    t.integer  "tag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "fields", :force => true do |t|
+    t.string   "name"
+    t.string   "label"
+    t.integer  "field_group_id"
+    t.string   "as"
+    t.text     "collection"
+    t.integer  "position"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "taggings", :force => true do |t|
