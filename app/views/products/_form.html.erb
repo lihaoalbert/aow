@@ -28,6 +28,8 @@
       </div>
     </div>
 
+    <%= render 'fields/groups', :f => f %>
+
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', products_path, :class => 'btn' %>

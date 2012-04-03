@@ -1,0 +1,16 @@
+<div id=<%= "field_group_#{field_group.id}_container" %>, "data-tag"=<%= field_group.tag.try(:name) %>>
+  <h3><%= field_group.name %></h3>
+  <table border="0">
+    <% field_group.fields.in_groups_of(1, false) do | group| %>
+      <tr>
+        <% group.each_with_index do |field, i| %>
+          <td>
+            <% checked = YAML.load(f.object.send(field.name).to_s) if field.as == 'check_boxes' %>
+            <%= f.label field.name, field.label %>
+            <%= f.text_field field.name, field.input_options.merge(checked: checked) %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

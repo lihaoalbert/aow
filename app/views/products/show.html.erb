@@ -1,14 +1,32 @@
-<h1>/Product</h1>
+<h1>Product</h1>
 
 <p>
-  <b>Name</b><br>
-  <%= @product.name %>
+<b>Name</b><br>
+<%= @product.name %>
 </p>
 
 <p>
-  <b>Company</b><br>
-  <%= @product.company_id %>
+<b>Company</b><br>
+<%= @product.company_id %>
 </p>
+
+<p>
+<b>Tags</b><br />
+<%= @product.tag_list %>
+</p>
+
+<h3>Custom Field</h3>
+<% @product.field_groups.each do |fg| %>
+  <% if fg.fields.present? %>
+    <h5><%= fg.label %></h5>
+    <% fg.fields.each do |field| %>
+      <p>
+      <b><%= field.label %></b><br />
+      <%= @product.send(field.name) %>
+      </p>
+    <% end %>
+  <% end %>
+<% end %>
 
 <div class="form-actions">
   <%= link_to 'Back', products_path, :class => 'btn'  %>
