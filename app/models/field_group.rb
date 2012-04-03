@@ -4,8 +4,7 @@ class FieldGroup < ActiveRecord::Base
   validates_presence_of :label
 
   before_save do
-    #FIXME have bug when label is Chinese
-    self.name = label.downcase.gsub(/[^a-z0-9]/, '_') if name.blank? and label.present?
+    self.name = Pinyin.t(label).downcase.gsub(/[^a-z0-9]/, '_') if name.blank? and label.present?
   end
 
   def self.with_tags(tag_ids)

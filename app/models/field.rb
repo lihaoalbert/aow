@@ -28,6 +28,7 @@ class Field < ActiveRecord::Base
   before_create     :add_column
   after_validation  :update_column, on: "update"
   validates_presence_of :label, :as
+  validates_uniqueness_of :name, :label
   validates_length_of :label, :maximum => 80
   validates_inclusion_of :as, in: FIELD_TYPES.keys, message: "Invalid Field Type."
 
@@ -122,32 +123,28 @@ class Field < ActiveRecord::Base
     # If column name is already taken, a numeric suffix is appended.
     # Example column sequence: cf_custom, cf_custom_2, cf_custom_3, ...
     suffix = nil
-    field_name = 'cf_' + label.downcase.gsub(/[^a-z0-9]+/, '_')
-    while (final_name = [field_name, suffix].compact.join('_')) &&
-      klass_column_names.include?(final_name) do
-      suffix = (suffix || 1) + 1
-    end
+    field_name = 'cf_' + Pinyin.t(label).downcase.gsub(/[^a-z0-9]+/, '_')
+    suffix = (suffix || 1) + 1 while (final_name = [field_name, suffix].compact.join('_')) && klass_column_names.include?(final_name)
     final_name
-    end
+  end
 
-    # Returns options for ActiveRecord operations
-    def column_options
-      Field.field_types[self.as][:options] || {}
-    end
+  # Returns options for ActiveRecord operations
+  def column_options
+    Field.field_types[self.as][:options] || {}
+  end
 
-    def add_column
-      self.name = generate_column_name if name.blank?
-      connection.add_column(table_name, name, column_type, column_options)
+  def add_column
+    self.name = generate_column_name if name.blank?
+    connection.add_column(table_name, name, column_type, column_options)
+    klass.reset_column_information
+  end
+
+  def update_column
+    # Change database column type if appropriate
+    # (NOTE: Columns will never be renamed or destroyed)
+    if self.errors.empty? && db_transition_safety(as_was) == :safe
+      connection.change_column(table_name, name, column_type, column_options)
       klass.reset_column_information
     end
-
-    def update_column
-      # Change database column type if appropriate
-      # (NOTE: Columns will never be renamed or destroyed)
-      if self.errors.empty? && db_transition_safety(as_was) == :safe
-        connection.change_column(table_name, name, column_type, column_options)
-        klass.reset_column_information
-      end
-    end
-
   end
+end

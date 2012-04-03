@@ -12,6 +12,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'cancan'
 gem 'acts-as-taggable-on', '~> 2.2.2'
+gem 'chinese_pinyin'
 
 # Gems used only for assets and not required
 # in production environments by default.

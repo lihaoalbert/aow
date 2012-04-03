@@ -2,6 +2,8 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> /Field</legend>
 
+    <%= render :partial => "common/form_error", :locals => { model: @field } %>
+
     <div class="control-group">
       <%= f.label :name, :class => 'control-label' %>
       <div class="controls">
