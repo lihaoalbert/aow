@@ -16,7 +16,11 @@
         <td><%= product.id %></td>
         <td><%= link_to product.name, product_path(product) %></td>
         <td><%= link_to product.company.compNameCN, product.company %></td>
-        <td><%= product.tag_list %></td>
+        <td>
+          <% product.tags.each do |t| %>
+            <%= link_to t.name, tag_path(t) %>
+          <% end %>
+        </td>
         <td><%= product.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_product_path(product), :class => 'btn btn-mini' %>
