@@ -5,7 +5,6 @@
 <div id="field_groups">
   <% f.object.field_groups.each do |fg| %>
     <% if fg.fields.present? %>
-      <% fg[fg.tag.name.downcase] = "field_group_#{fg.id}_container" if fg.tag %>
       <%= render :partial => 'fields/group', :locals => {f: f, field_group: fg} %>
     <% end %>
   <% end %>
