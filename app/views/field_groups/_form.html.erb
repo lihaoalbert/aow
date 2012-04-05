@@ -18,13 +18,6 @@
       </div>
     </div>
 
-    <div class="control-group">
-      <%= f.label :tag_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.select :tag_id, options_for_select(Tag.all.collect{|tag| [tag.name, tag.id]}, @field_group.tag_id), :include_blank => true %>
-      </div>
-    </div>
-
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', field_groups_path, :class => 'btn' %>

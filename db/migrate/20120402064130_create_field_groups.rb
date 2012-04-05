@@ -4,7 +4,6 @@ class CreateFieldGroups < ActiveRecord::Migration
       t.string :name
       t.string :label
       t.integer :position
-      t.integer :tag_id
 
       t.timestamps
     end

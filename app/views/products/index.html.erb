@@ -5,7 +5,7 @@
       <th>ID</th>
       <th>Name</th>
       <th>Company</th>
-      <th>Tags</th>
+      <th>Type</th>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
@@ -17,8 +17,8 @@
         <td><%= link_to product.name, product_path(product) %></td>
         <td><%= link_to product.company.compNameCN, product.company %></td>
         <td>
-          <% product.tags.each do |t| %>
-            <%= link_to t.name, tag_path(t) %>
+          <% product.field_groups.each do |t| %>
+            <%= link_to t.label, field_group_path(t) %>
           <% end %>
         </td>
         <td><%= product.created_at %></td>

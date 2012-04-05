@@ -11,15 +11,17 @@
 </p>
 
 <p>
-<b>Tags</b><br />
-<%= @product.tag_list %>
+<b>Type</b><br />
+<% @product.field_groups.each do |group| %>
+  <%= link_to group.label, group %>
+<% end %>
 </p>
 
 <h3>Custom Field</h3>
-<% @product.field_groups.each do |fg| %>
-  <% if fg.fields.present? %>
-    <h5><%= fg.label %></h5>
-    <% fg.fields.each do |field| %>
+<% @product.field_groups.each do |group| %>
+  <% if group.fields.present? %>
+    <h3><%= group.label %></h3>
+    <% group.fields.each do |field| %>
       <p>
       <b><%= field.label %></b><br />
       <%= @product.send(field.name) %>

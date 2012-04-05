@@ -4,7 +4,6 @@
     <tr>
       <th>ID</th>
       <th>Label</th>
-      <td>Tag</td>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
@@ -14,7 +13,6 @@
       <tr>
         <td><%= field_group.id %></td>
         <td><%= link_to field_group.label, field_group_path(field_group) %></td>
-        <td><%= link_to field_group.tag.name, field_group.tag if field_group.tag %></td>
         <td><%= field_group.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_field_group_path(field_group), :class => 'btn btn-mini' %>

@@ -19,12 +19,12 @@
     </div>
 
     <% asset = controller_name.singularize %>
-    <% f.object.tags = unsaved_param_tags(asset) if params[asset] && params[asset][:tag_list] %>
 
     <div class="control-group">
-      <%= f.label :tags, :class => 'control-label' %>
+      <%= f.label :field_group_list, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :tag_list, Tag.all.map{|t| [t.name, t.name] }, {value: f.object.tags.map{|t| t.name }}, {multiple: true, :"data-placeholder" => "input you tags", stype: "width: 500px;"} %>
+        <%= @product.field_groups.inspect %>
+        <%= f.select :field_group_list, options_for_select(FieldGroup.all.map{|group| [group.label, group.id] }, @product.field_groups.map{|group| group.id}), {multiple: true, :"data-placeholder" => "input you ", stype: "width: 500px;"} %>
       </div>
     </div>
 
