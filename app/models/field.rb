@@ -12,9 +12,8 @@ class Field < ActiveRecord::Base
     'string'      => :string,
     'text'        => :text,
     'email'       => :string,
-    'url'         => :string,
-    'tel'         => :string,
     'select'      => :string,
+    'multiselect' => :string,
     'radio'       => :string,
     'check_boxes' => :text,
     'boolean'     => :boolean,
@@ -22,7 +21,6 @@ class Field < ActiveRecord::Base
     'datetime'    => :timestamp,
     'decimal'     => [:decimal, {:precision => 15, :scale => 2}],
     'integer'     => :integer,
-    'float'       => :float
   }
 
   before_create     :add_column

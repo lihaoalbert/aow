@@ -1,1 +1,4 @@
 $("#<%= dom_id @field %>").remove();
+<% if @field_group.fields.empty? %>
+    $("#<%= dom_id @field_group %> .fields").css('display', 'none');
+<% end %>

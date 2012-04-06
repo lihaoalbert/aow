@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405082128) do
+ActiveRecord::Schema.define(:version => 20120406111447) do
 
   create_table "companies", :force => true do |t|
     t.string   "compNameEN"
@@ -70,11 +70,28 @@ ActiveRecord::Schema.define(:version => 20120405082128) do
     t.datetime "updated_at",     :null => false
   end
 
+  create_table "options", :force => true do |t|
+    t.string   "name"
+    t.text     "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "products", :force => true do |t|
     t.string   "name"
     t.integer  "company_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "cf_cpu"
+    t.string   "cf_mem"
+    t.string   "cf_disk"
+    t.string   "cf_os"
+    t.string   "cf_database"
+    t.string   "cf_language"
+    t.string   "cf_label1"
+    t.string   "cf_label3"
+    t.string   "cf_hello"
+    t.string   "cf_label4"
   end
 
 end

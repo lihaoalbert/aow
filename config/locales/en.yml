@@ -16,8 +16,5 @@ en:
     date:        Date
     datetime:    Date & Time
     email:       Email Address
-    url:         URL
-    tel:         Phone Number
     decimal:     Number (Money)
     integer:     Number (Integer)
-    float:       Number (Floating Point)

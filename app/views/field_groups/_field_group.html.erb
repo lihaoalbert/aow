@@ -3,26 +3,25 @@
     <h3 style="display:inline"><%= field_group.label %></h3>
     <div style="float:right" class="title">
       <%= link_to 'Edit', edit_field_group_path(field_group), :class => 'btn btn-mini', remote: true %>
-      <%= link_to 'Add a field', new_field_path(field_group_id: field_group.id), :class => 'btn btn-mini', remote: true %>
+      <%= link_to 'Add a field', new_field_group_field_path(field_group.id), :class => 'btn btn-mini', remote: true %>
       <%= link_to 'Destroy', field_group_path(field_group), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger', remote: true %>
     </div>
   </div>
-  <% if field_group.fields && field_group.fields.present? %>
-    <div class="fields_info">
-      <table class="table table-striped" id="fields">
-        <thead>
-          <tr>
-            <th>Label</th>
-            <th>As a</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= render field_group.fields %>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
+  <div class="fields_info">
+    <% has_fields = field_group.fields && field_group.fields.present? %>
+    <table class="table table-striped fields" style="display:<%= has_fields ? 'table' : 'none' %>">
+      <thead>
+        <tr>
+          <th>Label</th>
+          <th>As a</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render field_group.fields if has_fields %>
+      </tbody>
+    </table>
+  </div>
   <div class="field_group_form">
   </div>
 </div>

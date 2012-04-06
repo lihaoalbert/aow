@@ -1,9 +1,8 @@
 Aow::Application.routes.draw do
-  resources :tags
 
-  resources :fields
-
-  resources :field_groups
+  resources :field_groups do
+    resources :fields
+  end
 
   resources :products
 
