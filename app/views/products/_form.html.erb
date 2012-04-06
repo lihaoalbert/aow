@@ -14,7 +14,7 @@
     <div class="control-group">
       <%= f.label :company_id, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :company_id, options_for_select(Company.all.collect{|company| [company.compNameCN, company.id]}, @product.company_id), :include_blank => true %>
+        <%= f.select :company_id, options_for_select(Company.all.collect{|company| [company.compNameCN, company.id]}, @product.company_id), {:include_blank => true}, {:class => "chzn-select"}%>
       </div>
     </div>
 
@@ -23,8 +23,7 @@
     <div class="control-group">
       <%= f.label :field_group_list, :class => 'control-label' %>
       <div class="controls">
-        <%= @product.field_groups.inspect %>
-        <%= f.select :field_group_list, options_for_select(FieldGroup.all.map{|group| [group.label, group.id] }, @product.field_groups.map{|group| group.id}), {multiple: true, :"data-placeholder" => "input you ", stype: "width: 500px;"} %>
+        <%= select_tag "product[field_group_list][]", options_for_select(FieldGroup.all.map{|group| [group.label, group.id] }, @product.field_groups.map{|group| group.id}), {multiple: true, :"data-placeholder" => "input the product type", stype: "width: 500px;", class: "chzn-select"} %>
       </div>
     </div>
 

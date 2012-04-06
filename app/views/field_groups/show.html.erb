@@ -18,6 +18,5 @@
 <div class="form-actions">
   <%= link_to 'Back', field_groups_path, :class => 'btn'  %>
   <%= link_to 'Edit', edit_field_group_path(@field_group), :class => 'btn' %>
-  <%= link_to 'Add a field', new_field_path(field_group_id: @field_group.id), :class => 'btn' %>
   <%= link_to 'Delete', field_group_path(@field_group), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>

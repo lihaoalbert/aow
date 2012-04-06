@@ -8,8 +8,11 @@ class Product < ActiveRecord::Base
   attr_accessor   :field_group_list
 
   before_save do
-    p field_group_list.inspect
-    self.field_groups = field_group_list.map { |id| field_group = FieldGroup.find_by_id(id.strip) }.compact.uniq if field_group_list.present?
+    if field_group_list.present?
+      self.field_groups = field_group_list.map { |id| field_group = FieldGroup.find_by_id(id.strip) }.compact.uniq
+    else
+      self.field_groups = []
+    end
   end
 
 end

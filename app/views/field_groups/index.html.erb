@@ -1,5 +1,5 @@
 <h1>Field Groups</h1>
-<table class="table table-striped">
+<table class="table table-striped" id="field_groups">
   <thead>
     <tr>
       <th>ID</th>
@@ -8,19 +8,15 @@
       <th>Actions</th>
     </tr>
   </thead>
+
   <tbody>
-    <% @field_groups.each do |field_group| %>
-      <tr>
-        <td><%= field_group.id %></td>
-        <td><%= link_to field_group.label, field_group_path(field_group) %></td>
-        <td><%= field_group.created_at %></td>
-        <td>
-          <%= link_to 'Edit', edit_field_group_path(field_group), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', field_group_path(field_group), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
+    <%= render @field_groups %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_field_group_path, :class => 'btn btn-primary' %>
+<br />
+
+<h3>New</h3>
+<div id="field_group_form">
+  <%= render :partial => 'form' %>
+</div>

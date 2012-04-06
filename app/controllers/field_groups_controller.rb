@@ -3,6 +3,7 @@ class FieldGroupsController < ApplicationController
   # GET /field_groups.json
   def index
     @field_groups = FieldGroup.all
+    @field_group = FieldGroup.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,13 +29,18 @@ class FieldGroupsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @field_group }
+      format.js
     end
   end
 
   # GET /field_groups/1/edit
   def edit
     @field_group = FieldGroup.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # POST /field_groups
@@ -45,10 +51,10 @@ class FieldGroupsController < ApplicationController
     respond_to do |format|
       if @field_group.save
         format.html { redirect_to @field_group, notice: 'Field group was successfully created.' }
-        format.json { render json: @field_group, status: :created, location: @field_group }
+        format.js
       else
         format.html { render action: "new" }
-        format.json { render json: @field_group.errors, status: :unprocessable_entity }
+        format.js { render action: "new" }
       end
     end
   end
@@ -61,10 +67,10 @@ class FieldGroupsController < ApplicationController
     respond_to do |format|
       if @field_group.update_attributes(params[:field_group])
         format.html { redirect_to @field_group, notice: 'Field group was successfully updated.' }
-        format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
-        format.json { render json: @field_group.errors, status: :unprocessable_entity }
+        format.js { render action: "edit" }
       end
     end
   end
@@ -77,7 +83,7 @@ class FieldGroupsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to field_groups_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 end
