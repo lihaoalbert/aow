@@ -3,10 +3,11 @@ class FieldsController < ApplicationController
   # GET /fields.json
   def index
     @fields = Field.all
+    @field = Field.new
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @fields }
+      format.js
     end
   end
 
@@ -16,8 +17,8 @@ class FieldsController < ApplicationController
     @field = Field.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @field }
+      format.html
+      format.js
     end
   end
 
@@ -28,13 +29,18 @@ class FieldsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @field }
+      format.js
     end
   end
 
   # GET /fields/1/edit
   def edit
     @field = Field.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # POST /fields
@@ -45,10 +51,10 @@ class FieldsController < ApplicationController
     respond_to do |format|
       if @field.save
         format.html { redirect_to @field, notice: 'Field was successfully created.' }
-        format.json { render json: @field, status: :created, location: @field }
+        format.js
       else
         format.html { render action: "new" }
-        format.json { render json: @field.errors, status: :unprocessable_entity }
+        format.js { render action: "new" }
       end
     end
   end
@@ -61,10 +67,10 @@ class FieldsController < ApplicationController
     respond_to do |format|
       if @field.update_attributes(params[:field])
         format.html { redirect_to @field, notice: 'Field was successfully updated.' }
-        format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
-        format.json { render json: @field.errors, status: :unprocessable_entity }
+        format.js { render action: "edit" }
       end
     end
   end
@@ -77,7 +83,7 @@ class FieldsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to fields_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 end

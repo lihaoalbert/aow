@@ -4,7 +4,7 @@
   <td><%= field_group.created_at %></td>
   <td>
     <%= link_to 'Edit', edit_field_group_path(field_group), :class => 'btn btn-mini', remote: true %>
-    <%= link_to 'Add a field', new_field_path(field_group_id: field_group.id), :class => 'btn btn-mini' %>
+    <%= link_to 'Add a field', new_field_path(field_group_id: field_group.id), :class => 'btn btn-mini', remote: true %>
     <%= link_to 'Destroy', field_group_path(field_group), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
   </td>
 </tr>

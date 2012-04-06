@@ -1,5 +1,5 @@
 <h1>Fields</h1>
-<table class="table table-striped">
+<table class="table table-striped" id="fields">
   <thead>
     <tr>
       <th>ID</th>
@@ -9,18 +9,13 @@
     </tr>
   </thead>
   <tbody>
-    <% @fields.each do |field| %>
-      <tr>
-        <td><%= field.id %></td>
-        <td><%= link_to field.label, field_path(field) %></td>
-        <td><%= field.created_at %></td>
-        <td>
-          <%= link_to 'Edit', edit_field_path(field), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', field_path(field), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
+    <%= render @fields %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_field_path, :class => 'btn btn-primary' %>
+<br />
+
+<h3>New</h3>
+<div id="field_form">
+  <%= render :partial => 'form' %>
+</div>
