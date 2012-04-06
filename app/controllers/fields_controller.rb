@@ -26,6 +26,7 @@ class FieldsController < ApplicationController
   # GET /fields/new.json
   def new
     @field = Field.new
+    @field_group = FieldGroup.find(params[:field_group_id])
 
     respond_to do |format|
       format.html # new.html.erb

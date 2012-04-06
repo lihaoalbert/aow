@@ -1,10 +1,7 @@
-<% asset = controller_name.singularize %>
-<% f.object.tags = unsaved_param_tags(asset) if params[asset] and params[asset][:tag_list] %>
-
 <div id="field_groups">
-  <% FieldGroup.all.each do |fg| %>
-    <% if fg.fields.present? %>
-      <%= render :partial => 'fields/group', :locals => {f: f, field_group: fg} %>
+  <% FieldGroup.all.each do |field_group| %>
+    <% if field_group.fields.present? %>
+      <%= render :partial => 'fields/group', :locals => {f: f, field_group: field_group} %>
     <% end %>
   <% end %>
 </div>

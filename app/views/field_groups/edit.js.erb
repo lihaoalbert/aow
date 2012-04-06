@@ -1,1 +1,1 @@
-$("#field_group_form > form").replaceWith("<%= j render "form" %>");
+$("#<%= dom_id @field_group %> .field_group_form").html("<%= j render "form" %>");

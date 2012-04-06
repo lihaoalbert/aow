@@ -1,4 +1,2 @@
 $("#<%= dom_id @field %>").replaceWith("<%= j render @field %>");
-<% @field = Field.new %>
-$("#field_form > form").replaceWith("<%= j render "form" %>");
-$("#field_form > form")[0].reset();
+$("#<%= dom_id @field.field_group %> .field_group_form").html("");

@@ -11,12 +11,14 @@
       </div>
     </div>
 
+    <!--
     <div class="control-group">
       <%= f.label :field_group_id, :class => 'control-label' %>
       <div class="controls">
         <%= f.select :field_group_id, options_for_select(FieldGroup.all.collect{ |group| [group.label, group.id] }, params[:field_group_id] || @field.field_group_id) %>
       </div>
     </div>
+    -->
 
     <div class="control-group">
       <%= f.label :as, :class => 'control-label' %>
@@ -34,7 +36,7 @@
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', fields_path, :class => 'btn' %>
+      <a onclick="$('#<%= dom_id @field, action_name %>').html('');return false;", class='btn'>Cancel</a>
     </div>
   </fieldset>
 <% end %>

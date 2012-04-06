@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.field_group_info {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #cecece;
+}
 .box {
-  background-color: #fff;
+  background-color: whiteSmoke;
   padding: 10px;
   margin: 0 0 20px 0; /* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 6px;
