@@ -15,4 +15,17 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def self.get_field_array
+    # every element consist of "name", "label", "name" is column name, "label" is display name
+    field_array = [["id","id"], ["company_id","company_id"], ["name","name"]]
+    FieldGroup.all.each do |group|
+      if group.fields && group.fields.present?
+        group.fields.each do |field|
+          field_array << [field.name, field.label]
+        end
+      end
+    end
+    field_array
+  end
+
 end

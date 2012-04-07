@@ -80,4 +80,48 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def export
+    @products = Product.all
+    respond_to do |format|
+      format.xls {
+        send_data(xls_content_for(@products),
+                  :type => "text/excel;charset=utf-8; header=present",
+                  :filename => "Report_Products_#{Time.now.strftime("%Y%m%d%H%M")}.xls")
+      }
+    end
+  end
+
+  def import
+    render text: "import"
+  end
+
+  def import_template
+    render text: 'import_template'
+  end
+
+  private
+  def xls_content_for(objs)
+    xls_report = StringIO.new
+    book = Spreadsheet::Workbook.new
+    sheet1 = book.create_worksheet :name => "Products"
+
+    blue = Spreadsheet::Format.new :color => :blue, :weight => :bold, :size => 10
+    sheet1.row(0).default_format = blue
+
+    sheet1.row(0).concat Product.get_field_array.collect{|arr| arr[1] }
+    count_row = 1
+    if objs
+      objs.each do |obj|
+        columns = Product.get_field_array.collect{|arr| arr[0] }
+        columns.each_with_index do |column_name, index|
+          sheet1[count_row, index] = obj.send(column_name)
+        end
+        count_row += 1
+      end
+    end
+
+    book.write xls_report
+    xls_report.string
+  end
 end

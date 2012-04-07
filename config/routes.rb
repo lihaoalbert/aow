@@ -4,6 +4,13 @@ Aow::Application.routes.draw do
     resources :fields
   end
 
+  get 'products/imexport'
+  get 'products/export'
+  get 'products/import_template'
+  match 'products/import' => 'products#import', :via => :post
+
+  resources :products
+
   resources :products
 
   resources :companies
