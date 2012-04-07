@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -105,9 +105,8 @@ class ProductsController < ApplicationController
     sheet1.each 1 do |row|
       @counter+=1
       p = Product.new
-      Product.get_field_array.each_with_index do |field, index|
-        p "#{field[0]}=#{row[index]}"
-        p.send("#{field[0]}=", row[index])
+      Product.get_field_array.each_with_index do |field, i|
+        p.send("#{field[0]}=", row[i])
       end
 
       if p.valid?
@@ -144,8 +143,8 @@ class ProductsController < ApplicationController
     if objs
       objs.each do |obj|
         columns = Product.get_field_array.collect{|arr| arr[0] }
-        columns.each_with_index do |column_name, index|
-          sheet1[count_row, index] = obj.send(column_name)
+        columns.each_with_index do |column_name, i|
+          sheet1[count_row, i] = obj.send(column_name)
         end
         count_row += 1
       end

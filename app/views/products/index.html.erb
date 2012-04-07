@@ -16,11 +16,7 @@
         <td><%= product.id %></td>
         <td><%= link_to product.name, product_path(product) %></td>
         <td><%= link_to product.company.compNameCN, product.company %></td>
-        <td>
-          <% product.field_groups.each do |t| %>
-            <%= link_to t.label, field_group_path(t) %>
-          <% end %>
-        </td>
+        <td><%= product.field_group_name_string %></td>
         <td><%= product.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_product_path(product), :class => 'btn btn-mini' %>
@@ -30,5 +26,7 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @posts %>
 
 <%= link_to 'New', new_product_path, :class => 'btn btn-primary' %>

@@ -15,15 +15,3 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require chosen-jquery
-
-var aow = {
-
-  date_select_popup: function(id, dropdown_id, show_time) {
-    id = "#" + id;
-    $(id).focus(function() {
-      $(id).datepicker()
-    });
-  }
-
-};
-
