@@ -12,9 +12,7 @@
 
 <p>
 <b>Type</b><br />
-<% @product.field_groups.each do |group| %>
-  <%= link_to group.label, group %>
-<% end %>
+<%= @product.field_groups.map(&:label).join(", ") %>
 </p>
 
 <h3>Custom Field</h3>
@@ -24,7 +22,11 @@
     <% group.fields.each do |field| %>
       <p>
       <b><%= field.label %></b><br />
-      <%= @product.send(field.name) %>
+      <% if field.as == "multiselect" %>
+        <%= YAML.load(@product.send(field.name)).join(", ") if @product.send(field.name) %>
+      <% else %>
+        <%= @product.send(field.name) %>
+      <% end %>
       </p>
     <% end %>
   <% end %>

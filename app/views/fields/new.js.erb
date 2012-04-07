@@ -1,1 +1,10 @@
 $("#<%= dom_id @field_group %> .field_group_form").html("<%= j render "form" %>");
+$("#<%= dom_id @field_group %> select").change(function () {
+  var str = "";
+  str += $(this).val();
+  if(str == "select" || str == "multiselect"){
+    $("#<%= dom_id @field_group %>_collection").show();
+  } else {
+    $("#<%= dom_id @field_group %>_collection").hide();
+  }
+});

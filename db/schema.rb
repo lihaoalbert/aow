@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(:version => 20120406111447) do
     t.string   "label"
     t.integer  "field_group_id"
     t.string   "as"
-    t.text     "collection"
     t.integer  "position"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false

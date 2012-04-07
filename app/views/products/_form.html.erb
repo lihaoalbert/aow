@@ -1,5 +1,4 @@
-<%= simple_form_for @product, :html => { :class => "form-horizontal" } do |f| %>
-  <%= f.error_notification %>
+<%= form_for @product, :html => { :class => "form-horizontal" } do |f| %>
 
    <legend><%= controller.action_name.capitalize %> /Product</legend>
 
@@ -15,14 +14,12 @@
     <div class="control-group">
       <%= f.label :company_id, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :company_id, options_for_select(Company.all.collect{|company| [company.compNameCN, company.id]}, @product.company_id), {:include_blank => true}, {:class => "chzn-select"}%>
+        <%= f.select :company_id, options_for_select(Company.all.collect{|company| [company.compNameCN, company.id]}, @product.company_id), {:class => "chzn-select"}%>
       </div>
     </div>
 
-    <% asset = controller_name.singularize %>
-
     <div class="control-group">
-      <%= f.label :field_group_list, :class => 'control-label' %>
+      <%= f.label "product type", :class => 'control-label' %>
       <div class="controls">
         <%= select_tag "product[field_group_list][]", options_for_select(FieldGroup.all.map{|group| [group.label, group.id] }, @product.field_groups.map{|group| group.id}), {multiple: true, :"data-placeholder" => "input the product type", stype: "width: 500px;", class: "chzn-select"} %>
       </div>

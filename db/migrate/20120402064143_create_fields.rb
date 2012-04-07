@@ -5,7 +5,6 @@ class CreateFields < ActiveRecord::Migration
       t.string :label
       t.integer :field_group_id
       t.string :as
-      t.text :collection
       t.integer :position
 
       t.timestamps

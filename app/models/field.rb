@@ -1,6 +1,4 @@
 class Field < ActiveRecord::Base
-  serialize :collection, Array
-
   belongs_to :field_group
 
   SAFE_DB_TRANSITIONS = {
@@ -20,11 +18,33 @@ class Field < ActiveRecord::Base
   }
 
   before_create     :add_column
+  after_save        :add_collection_to_options
   after_validation  :update_column, on: "update"
   validates_presence_of :label, :as
   validates_uniqueness_of :name, :label
   validates_length_of :label, :maximum => 80
   validates_inclusion_of :as, in: FIELD_TYPES.keys, message: "Invalid Field Type."
+
+  def option_name
+    self.name ? table_name << '|' << self.name : nil
+  end
+
+  def collection
+    option = Option.find_by_name(option_name)
+    @collection = option ? option.value : ""
+  end
+
+  def collection= (val)
+    # filter value
+    val ||= ""
+    @collection = val.split(",").map{|s|s.strip}.compact.uniq.join(",")
+  end
+
+  def add_collection_to_options
+    option = Option.find_or_create_by_name(option_name)
+    option.value = @collection
+    option.save
+  end
 
   def self.field_types
     @field_types ||= FIELD_TYPES.inject({}) do |hash, n|
@@ -45,7 +65,10 @@ class Field < ActiveRecord::Base
   end
 
   def input_options
-    input_html = {:maxlength => attributes[:maxlength]}
+    #input_html = {:maxlength => attributes[:maxlength]}
+    input_html = {}
+
+    p attributes.to_yaml
 
     attributes.reject { |k,v|
       !%w(as collection disabled label placeholder required).include?(k) or v.blank?

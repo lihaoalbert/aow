@@ -15,3 +15,11 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require chosen-jquery
+
+
+var troggleCollection = function(dom_id) {
+  var as;
+  as = $("#" + dom_id + "#field_as")[0];
+  return alert(dom_id);
+};
+
