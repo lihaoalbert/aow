@@ -1,6 +1,8 @@
 class Field < ActiveRecord::Base
   belongs_to :field_group
 
+  default_scope order("position DESC")
+
   SAFE_DB_TRANSITIONS = {
     :any => [[:date, :time, :timestamp], [:integer, :float]],
     :one => {:string => :text}

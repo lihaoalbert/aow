@@ -3,6 +3,8 @@ class FieldGroup < ActiveRecord::Base
   has_many :fieldings
   validates_presence_of :label
 
+  default_scope order("position DESC")
+
   before_save do
     self.name = Pinyin.t(label).downcase.gsub(/[^a-z0-9]/, '_') if name.blank? and label.present?
   end

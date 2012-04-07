@@ -3,6 +3,8 @@ class Product < ActiveRecord::Base
   has_many    :fieldings
   has_many    :field_groups, :through => :fieldings, uniq: true
 
+  default_scope order("updated_at DESC")
+
   validates_presence_of :company_id, :name
 
   attr_accessor  :field_group_list
