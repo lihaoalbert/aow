@@ -5,7 +5,7 @@
       <%= f.label field.name, field.label, :class => 'control-label' %>
       <div class="controls">
         <% checked = YAML.load(f.object.send(field.name).to_s) if field.as == 'check_boxes' %>
-        <%= f.text_field field.name, field.input_options.merge(checked: checked) %>
+        <%= f.input_field field.name, field.input_options.merge(checked: checked) %>
       </div>
     </div>
   <% end %>

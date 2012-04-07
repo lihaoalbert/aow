@@ -80,18 +80,8 @@ ActiveRecord::Schema.define(:version => 20120406111447) do
   create_table "products", :force => true do |t|
     t.string   "name"
     t.integer  "company_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "cf_cpu"
-    t.string   "cf_mem"
-    t.string   "cf_disk"
-    t.string   "cf_os"
-    t.string   "cf_database"
-    t.string   "cf_language"
-    t.string   "cf_label1"
-    t.string   "cf_label3"
-    t.string   "cf_hello"
-    t.string   "cf_label4"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

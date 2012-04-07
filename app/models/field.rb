@@ -14,7 +14,7 @@ class Field < ActiveRecord::Base
     'email'       => :string,
     'select'      => :string,
     'multiselect' => :string,
-    'radio'       => :string,
+    'radio_buttons'    => :string,
     'check_boxes' => :text,
     'boolean'     => :boolean,
     'date'        => :date,
