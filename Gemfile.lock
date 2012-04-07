@@ -150,9 +150,6 @@ GEM
       ffi (~> 1.0)
       multi_json (~> 1.0)
       rubyzip
-    simple_form (2.0.1)
-      actionpack (~> 3.0)
-      activemodel (~> 3.0)
     spork (0.9.0)
     spreadsheet (0.6.8)
       ruby-ole (>= 1.0)
@@ -200,7 +197,6 @@ DEPENDENCIES
   rspec-rails
   ruby_gntp
   sass-rails (~> 3.2.3)
-  simple_form
   spork
   spreadsheet
   twitter-bootstrap-rails

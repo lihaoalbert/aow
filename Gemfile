@@ -14,7 +14,6 @@ gem 'acts-as-taggable-on', '~> 2.2.2'
 gem 'chinese_pinyin'
 gem 'chosen-rails'
 gem 'spreadsheet'
-gem 'simple_form'
 gem 'carrierwave'
 
 # Gems used only for assets and not required
