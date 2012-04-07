@@ -8,13 +8,9 @@ en:
   field_types:
     string:      Short Answer
     text:        Long Answer
-    select:      Select List
+    select:      Single Select
     multiselect: Multi Select
-    radio:       Radio Buttons
     boolean:     Checkbox
-    check_boxes: Checkbox List
     date:        Date
-    datetime:    Date & Time
-    email:       Email Address
     decimal:     Number (Money)
     integer:     Number (Integer)

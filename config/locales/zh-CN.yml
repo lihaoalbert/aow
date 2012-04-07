@@ -222,7 +222,6 @@ zh-CN:
     boolean:     复选框
     check_boxes: 复选框列表
     date:        日期
-    datetime:    日期和时间
     email:       邮件
     url:         网址
     tel:         电话

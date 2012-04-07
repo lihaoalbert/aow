@@ -11,14 +11,10 @@ class Field < ActiveRecord::Base
   FIELD_TYPES = {
     'string'      => :string,
     'text'        => :text,
-    'email'       => :string,
     'select'      => :string,
     'multiselect' => :string,
-    'radio_buttons'    => :string,
-    'check_boxes' => :text,
     'boolean'     => :boolean,
     'date'        => :date,
-    'datetime'    => :timestamp,
     'decimal'     => [:decimal, {:precision => 15, :scale => 2}],
     'integer'     => :integer,
   }

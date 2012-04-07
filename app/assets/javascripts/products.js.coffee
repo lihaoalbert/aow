@@ -11,4 +11,4 @@ display_field_groups = (groups) ->
   display_field_group group for group in groups if groups != null
 
 display_field_group = (group) ->
-  alert(group)
+  #alert(group)

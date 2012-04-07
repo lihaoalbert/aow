@@ -40,6 +40,8 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    carrierwave (0.5.8)
+      activesupport (~> 3.0)
     childprocess (0.3.1)
       ffi (~> 1.0.6)
     chinese_pinyin (0.3.0)
@@ -182,6 +184,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 2.2.2)
   cancan
   capybara (~> 1.1.2)
+  carrierwave
   chinese_pinyin
   chosen-rails
   coffee-rails (~> 3.2.1)

@@ -93,11 +93,41 @@ class ProductsController < ApplicationController
   end
 
   def import
-    render text: "import"
+    excel_file = params[:excel_file]
+    file = ProductUploader.new
+    file.store!(excel_file)
+    book = Spreadsheet.open "#{file.store_path}"
+    sheet1 = book.worksheet 0
+    @products = []
+    @errors = Hash.new
+    @counter = 0
+
+    sheet1.each 1 do |row|
+      @counter+=1
+      p = Product.new
+      Product.get_field_array.each_with_index do |field, index|
+        p "#{field[0]}=#{row[index]}"
+        p.send("#{field[0]}=", row[index])
+      end
+
+      if p.valid?
+        p.save!
+        @products << p
+      else
+        @errors["#{@counter+1}"] = p.errors
+      end
+    end
+    file.remove!
   end
 
   def import_template
-    render text: 'import_template'
+    respond_to do |format|
+      format.xls {
+        send_data(xls_content_for(nil),
+                  :type => "text/excel;charset=utf-8; header=present",
+                  :filename => "Template_Products_#{Time.now.strftime("%Y%m%d%H%M")}.xls")
+      }
+    end
   end
 
   private
