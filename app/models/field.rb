@@ -13,7 +13,6 @@ class Field < ActiveRecord::Base
     'text'        => :text,
     'select'      => :string,
     'multiselect' => :string,
-    'boolean'     => :boolean,
     'date'        => :date,
     'decimal'     => [:decimal, {:precision => 15, :scale => 2}],
     'integer'     => :integer,

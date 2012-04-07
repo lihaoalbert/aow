@@ -10,7 +10,6 @@ en:
     text:        Long Answer
     select:      Single Select
     multiselect: Multi Select
-    boolean:     Checkbox
     date:        Date
     decimal:     Number (Money)
     integer:     Number (Integer)
