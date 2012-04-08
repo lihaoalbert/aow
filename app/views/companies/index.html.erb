@@ -1,9 +1,19 @@
 <h1>Companys</h1>
+<%= form_for @company, :url => {:action => "search"}, :html => { :class => "well form-inline" } do |f| %>
+  <%= f.label :compNameEN, :class => 'control-label' %>
+  <%= f.text_field :compNameEN, :class => 'input-small' %>
+  <%= f.label :compNameCN, :class => 'control-label' %>
+  <%= f.text_field :compNameCN, :class => 'input-small' %>
+
+  <%= f.submit "Search", :class => 'btn btn-primary' %>
+</fieldset>
+<% end %>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
       <th>Compnameen</th>
+      <th>Compnamecn</th>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
@@ -13,6 +23,7 @@
       <tr>
         <td><%= company.id %></td>
         <td><%= link_to company.compNameEN, company_path(company) %></td>
+        <td><%= link_to company.compNameCN, company_path(company) %></td>
         <td><%= company.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_company_path(company), :class => 'btn btn-mini' %>

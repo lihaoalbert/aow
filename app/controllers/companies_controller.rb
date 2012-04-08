@@ -3,11 +3,20 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.paginate(:page => params[:page], :per_page => 20)
+    @company = Company.new
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @companies }
     end
+  end
+
+  def search
+    compNameEN = params[:company][:compNameEN] || ''
+    compNameCN = params[:company][:compNameCN] || ''
+    @companies = Company.find_all_like_by(compNameEN, compNameCN).paginate(:page => params[:page], :per_page => 20)
+    @company = Company.new(:compNameEN => params[:compNameEN], :compNameCN => params[:compNameCN])
+    render :index
   end
 
   # GET /companies/1

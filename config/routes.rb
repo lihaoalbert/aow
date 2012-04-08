@@ -9,6 +9,8 @@ Aow::Application.routes.draw do
   get 'products/import_template'
   match 'products/import' => 'products#import', :via => :post
 
+  match 'companies/search' => 'companies#search', :via => :post
+
   resources :products
 
   resources :products
